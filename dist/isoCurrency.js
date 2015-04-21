@@ -894,8 +894,16 @@ angular.module('isoCurrency', ['isoCurrency.common'])
 			if (!currency) {
 				return amount;			
 			}
+
 			var fractionSize = (fraction === void 0) ? currency.fraction : fraction;
-			return $filter('currency')(amount, currency.symbol, fractionSize);
+	        var currencyFilter = $filter('currency');         
+
+	        if(amount < 0){
+	            return currencyFilter(amount, currency.symbol, fractionSize).replace("(", "-").replace(")", ""); 
+	        }
+	        
+	        return currencyFilter(amount, currencySymbol);
+
 		};
 
 	}]);
