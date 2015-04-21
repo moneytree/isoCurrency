@@ -907,7 +907,7 @@ angular.module('isoCurrency', ['isoCurrency.common'])
                 return currencyFilter(amount, currency.symbol, fractionSize).replace("(", "-").replace(")", ""); 
             }
             
-            return currencyFilter(amount, currencySymbol);
+            return currencyFilter(amount, currency.symbol);
 
         };
 
