@@ -26,6 +26,11 @@ angular.module('isoCurrency', ['isoCurrency.common'])
 			var fractionSize = (fraction === void 0) ? currency.fraction : fraction;
 	        var currencyFilter = $filter('currency');         
 
+        	/*
+				Based on the feedback from multiple users, the parenthesis construct wasn't as commonly understood 
+				as the minus symbol. 
+    		*/
+
 	        if(amount < 0){
 	            return currencyFilter(amount, currency.symbol, fractionSize).replace("(", "-").replace(")", ""); 
 	        }
