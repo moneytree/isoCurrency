@@ -902,12 +902,11 @@ angular.module('isoCurrency', ['isoCurrency.common'])
                 Based on the feedback from multiple users, the parenthesis construct wasn't as commonly understood 
                 as the minus symbol. 
             */
-
             if(amount < 0){
                 return currencyFilter(amount, currency.symbol, fractionSize).replace("(", "-").replace(")", ""); 
             }
             
-            return currencyFilter(amount, currency.symbol);
+            return currencyFilter(amount, currency.symbol, fractionSize);
 
         };
 
