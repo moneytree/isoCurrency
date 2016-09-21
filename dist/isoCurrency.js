@@ -5,7 +5,7 @@
  */
 angular.module('isoCurrency.common', [])
 	.factory('iso4217', function() {
-	
+
 		var currencies = {
 			'AFN': {
 				text: 'Afghani',
@@ -858,7 +858,7 @@ angular.module('isoCurrency.common', [])
 
 			/**
 			 * retrieves the object holding currency, code and fraction information about a currency.
-			 * 
+			 *
 			 * @param string code
 			 * @return object
 			 */
@@ -866,7 +866,10 @@ angular.module('isoCurrency.common', [])
 				if (!code) return;
 
 				return currencies[code.toUpperCase()];
-			}
+			},
+      getCurrenciesList: function() {
+        return currencies;
+      }
 		};
 	});
 
