@@ -910,8 +910,8 @@ angular.module('isoCurrency', ['isoCurrency.common'])
          as the minus symbol.
          */
       if(amount < 0){
-        return currencyFilter(amount, currency.symbol, fractionSize).replace("(", "-").replace(")", "");
+        return currencyFilter(amount, currency.symbol || (currencyCode + ' '), fractionSize).replace("(", "-").replace(")", "");
       }
-      return currencyFilter(amount, currency.symbol, fractionSize);
+      return currencyFilter(amount, currency.symbol || (currencyCode + ' '), fractionSize);
     };
   }]);
