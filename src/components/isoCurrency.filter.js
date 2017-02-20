@@ -22,6 +22,8 @@ angular.module('isoCurrency', ['isoCurrency.common'])
         return amount;
       }
 
+      if (typeof currency === "function") return currency(amount);
+
       var fractionSize = (fraction === void 0) ? currency.fraction : fraction;
       var currencyFilter = $filter('currency');
 

@@ -837,6 +837,16 @@ angular.module('isoCurrency.common', [])
         fraction: 0,
         symbol: '₫'
       },
+      'XPO': function (amount) {
+        var displayAmount;
+        if (parseInt(amount) > 0) {
+          displayAmount = '+';
+        } else if (parseInt(amount) < 0) {
+          displayAmount = '';
+        }
+        displayAmount += amount;
+        return displayAmount;
+      },
       'YER': {
         text: 'Yemeni Rial',
         fraction: 2,
@@ -901,6 +911,8 @@ angular.module('isoCurrency', ['isoCurrency.common'])
       if (!currency) {
         return amount;
       }
+
+      if (typeof currency === "function") return currency(amount);
 
       var fractionSize = (fraction === void 0) ? currency.fraction : fraction;
       var currencyFilter = $filter('currency');
